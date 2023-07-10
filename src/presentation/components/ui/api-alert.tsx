@@ -2,7 +2,11 @@ import React from 'react'
 import { Copy, Server } from 'lucide-react'
 import { toast } from 'react-hot-toast'
 
-import { Alert, AlertDescription, AlertTitle } from '@/presentation/components/ui/alert'
+import {
+  Alert,
+  AlertDescription,
+  AlertTitle,
+} from '@/presentation/components/ui/alert'
 import { Badge, BadgeProps } from '@/presentation/components/ui/badge'
 import { Button } from '@/presentation/components/ui/button'
 
