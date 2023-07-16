@@ -15,49 +15,49 @@ export function MainNav({
 
   const routes = [
     {
-      href: `/${params.storeId}`,
+      href: `/store-admin/${params.storeId}`,
       label: 'Overview',
-      active: pathname === `/${params.storeId}`,
+      active: pathname === `/store-admin/${params.storeId}`,
     },
     {
-      href: `/${params.storeId}/billboards`,
+      href: `/store-admin/${params.storeId}/billboards`,
       label: 'Billboards',
-      active: pathname === `/${params.storeId}/billboards`,
+      active: pathname === `/store-admin/${params.storeId}/billboards`,
     },
     {
-      href: `/${params.storeId}/categories`,
+      href: `/store-admin/${params.storeId}/categories`,
       label: 'Categories',
-      active: pathname === `/${params.storeId}/categories`,
+      active: pathname === `/store-admin/${params.storeId}/categories`,
     },
     {
-      href: `/${params.storeId}/sizes`,
+      href: `/store-admin/${params.storeId}/sizes`,
       label: 'Sizes',
-      active: pathname === `/${params.storeId}/sizes`,
+      active: pathname === `/store-admin/${params.storeId}/sizes`,
     },
     {
-      href: `/${params.storeId}/colors`,
+      href: `/store-admin/${params.storeId}/colors`,
       label: 'Colors',
-      active: pathname === `/${params.storeId}/colors`,
+      active: pathname === `/store-admin/${params.storeId}/colors`,
     },
     {
-      href: `/${params.storeId}/products`,
+      href: `/store-admin/${params.storeId}/products`,
       label: 'Products',
-      active: pathname === `/${params.storeId}/products`,
+      active: pathname === `/store-admin/${params.storeId}/products`,
     },
     {
-      href: `/${params.storeId}/orders`,
+      href: `/store-admin/${params.storeId}/orders`,
       label: 'Orders',
-      active: pathname === `/${params.storeId}/orders`,
+      active: pathname === `/store-admin/${params.storeId}/orders`,
     },
     {
-      href: `/${params.storeId}/notifications`,
+      href: `/store-admin/${params.storeId}/notifications`,
       label: 'Notifications',
-      active: pathname === `/${params.storeId}/notifications`,
+      active: pathname === `/store-admin/${params.storeId}/notifications`,
     },
     {
-      href: `/${params.storeId}/settings`,
+      href: `/store-admin/${params.storeId}/settings`,
       label: 'Settings',
-      active: pathname === `/${params.storeId}/settings`,
+      active: pathname === `/store-admin/${params.storeId}/settings`,
     },
   ]
 

@@ -2,14 +2,21 @@ import React from 'react'
 
 interface IHeadingProps {
   title: string
-  description: string
+  subtitle?: string
+  center?: boolean
 }
 
-export const Heading: React.FC<IHeadingProps> = ({ title, description }) => {
+export const Heading: React.FC<IHeadingProps> = ({
+  title,
+  subtitle,
+  center,
+}) => {
   return (
     <div>
-      <h2 className="text-3xl font-bold tracking-tight">{title}</h2>
-      <p className="text-sm text-muted-foreground">{description}</p>
+      <div className={center ? 'text-center' : 'text-start'}>
+        <div className="text-2xl font-bold">{title}</div>
+        <div className="font-light text-neutral-500 mt-2">{subtitle}</div>
+      </div>
     </div>
   )
 }

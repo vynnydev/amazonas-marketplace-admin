@@ -11,6 +11,7 @@ datasource db {
   relationMode = "prisma"
 }
 
+// ADMIN STORE
 model Store {
   id         String      @id @default(uuid())
   name       String
@@ -139,4 +140,65 @@ model Image {
   updatedAt DateTime @updatedAt
 
   @@index([productId])
+}
+
+// ADMIN MARKETPLACE
+
+// NEXT_AUTH
+model User {
+  id             String    @id @default(uuid())
+  masterSlug     String
+  name           String?
+  email          String?   @unique
+  emailVerified  DateTime?
+  image          String?
+  hashedPassword String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  accounts Account[] @relation("UserToAccounts")
+  session  Session[] @relation("UserToSession")
+
+  @@map("UserMarketAdmin")
+}
+
+model Account {
+  id                String  @id @default(uuid())
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  userId String
+  user   User   @relation("UserToAccounts", fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+  @@map("AccountMarketAdmin")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique @map("session_token")
+  expires      DateTime
+  userId       String
+  user         User     @relation("UserToSession", fields: [userId], references: [id], onDelete: Cascade)
+  @@index([userId])
+}
+
+model VerificationRequest {
+  id         String   @id @default(cuid())
+  identifier String
+  token      String   @unique
+  expires    DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@unique([identifier, token])
 }

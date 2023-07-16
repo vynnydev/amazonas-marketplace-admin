@@ -8,7 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { toast } from 'react-hot-toast'
 
 import { useStoreModal } from '@/presentation/hooks/use-store-modal'
-import { Modal } from '@/presentation/components/ui/modal'
+import { Modal } from '@/presentation/components/modals/modal'
 import {
   Form,
   FormControl,
@@ -40,9 +40,9 @@ export const StoreModal = () => {
     try {
       setLoading(true)
 
-      const response = await axios.post('/api/stores', values)
+      const response = await axios.post('/api/store-admin/stores', values)
 
-      window.location.assign(`/${response.data.id}`)
+      window.location.assign(`/store-admin/${response.data.id}`)
     } catch (error) {
       toast.error('Something went wrong.')
     } finally {
